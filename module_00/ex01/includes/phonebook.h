@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:44:44 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/10/04 14:10:56 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/10/05 19:09:46 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,9 @@
 
 # include "../srcs/classes/Phonebook_Class.hpp"
 # include "../srcs/classes/Contact.hpp"
+
+void	add_contact(Phonebook *phonebook);
+void	search_contact(Phonebook phonebook);
+void	exit_program();
 
 #endif

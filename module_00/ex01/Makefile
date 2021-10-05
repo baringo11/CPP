@@ -1,11 +1,11 @@
 NAME = phonebook
 CC = clang++
-FLAGS = -c #-Wall -Wextra -Werror
+FLAGS = -c -Wall -Wextra -Werror
 OBJS = $(SRCS:.cpp=.o)
-SRCS = srcs/main.cpp srcs/classes/Phonebook_Class.cpp
+SRCS = srcs/main.cpp srcs/classes/Phonebook_Class.cpp srcs/classes/Contact.cpp
 
-phonebook: $(SRCS)
-		$(CC) $(FLAGS) $(SRCS)
+$(NAME): $(SRCS) $(OBJS)
+		#$(CC) $(FLAGS) $(SRCS)
 		$(CC) -o $(NAME) $(OBJS) #-g3 -fsanitize=address
 
 all: $(NAME)
