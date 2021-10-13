@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 23:09:49 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/10/13 09:27:22 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/10/13 11:13:05 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,17 @@ Fixed::Fixed() : point_value(0)
 	return ;
 }
 
-Fixed::Fixed(int const n) : point_value(n*this->fractional_bits)
+Fixed::Fixed(int const n)
 {
 	std::cout << "Int constructor called" << std::endl;
+	this->point_value = n << this->fractional_bits;
 	return ;
 }
 
-Fixed::Fixed(float const n) : point_value(n*this->fractional_bits)
+Fixed::Fixed(float const n)
 {
 	std::cout << "Float constructor called" << std::endl;
+	this->point_value = (int)(roundf(n * (1 << this->fractional_bits)));
 	return ;
 }
 
@@ -59,4 +61,20 @@ int Fixed::getRawBits(void) const
 void Fixed::setRawBits(int const raw)
 {
 	this->point_value = raw;
+}
+
+float Fixed::toFloat(void) const
+{
+    return ((float)this->point_value / (float)(1 << this->fractional_bits));
+}
+
+int Fixed::toInt(void) const
+{
+    return ((int)(this->point_value >> this->fractional_bits));
+}
+
+std::ostream &operator<<(std::ostream &out, Fixed const &rhs)
+{
+    out << rhs.toFloat();
+    return (out);
 }
