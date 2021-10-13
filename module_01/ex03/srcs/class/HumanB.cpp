@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 23:10:44 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/10/10 00:58:34 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/10/13 19:41:18 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 HumanB::HumanB(std::string name)
 {
 	this->name = name;
+	this->_weapon = NULL;
 	return ;
 }
 HumanB::~HumanB()

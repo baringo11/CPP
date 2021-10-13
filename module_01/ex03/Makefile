@@ -1,6 +1,6 @@
 NAME = unnecessary_violence
 CC = clang++
-FLAGS = -c -Wall -Wextra -Werror
+FLAGS = -c -Wall -Wextra -Werror -std=c++98
 OBJS = $(SRCS:.cpp=.o)
 SRCS = srcs/main.cpp srcs/class/Weapon.cpp srcs/class/HumanA.cpp srcs/class/HumanB.cpp
 
