@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:44:55 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/10/14 00:17:04 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/10/14 11:33:49 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,12 @@ void	add_contact(Phonebook *phonebook)
 
 	std::cout << "\n- Write the FIRST NAME: ";
 	std::getline(std::cin, first_name);
-	
+	while (first_name.empty())
+	{
+		std::cout << "Error, FIRST NAME shouldn't be empty\n";
+		std::cout << "\n- Write the FIRST NAME: ";
+		std::getline(std::cin, first_name);
+	}
 	std::cout << "- Write the LAST NAME: ";
 	std::getline(std::cin, last_name);
 
@@ -54,7 +59,7 @@ void	add_contact(Phonebook *phonebook)
 
 	std::cout << "- Write the PHONE NUMBER: ";
 	std::getline(std::cin, phone_number);
-	
+
 	std::cout << "- Write the DARKEST SECRET: ";
 	std::getline(std::cin, darkest_secret);
 
@@ -69,10 +74,11 @@ void	search_contact(Phonebook phonebook)
 {
 	int	index;
 	int	search;
-	int	n;
+	std::string	n;
 
 	index = 0;
 	search = 0;
+	std::cin.ignore();
 	while (index < 8)
 	{
 		if (!phonebook.contacts[index].getName().empty())
@@ -91,15 +97,16 @@ void	search_contact(Phonebook phonebook)
 		return ;
 	}
 	std::cout << "\nWrite the number of the contact you want to consult: ";
-	std::cin >> n;
+	std::getline(std::cin, n);
 	std::cout << std::endl;
-	if (n > 0 && n <= search)
+	if ((!n.compare("1") || !n.compare("2") || !n.compare("3") || !n.compare("4") || !n.compare("5") || !n.compare("6") || !n.compare("7") || !n.compare("8"))
+		&& stoi(n) <= search)
 	{
-		std::cout << "\t- First name: \t\t" << phonebook.contacts[n - 1].getName() << std::endl;
-		std::cout << "\t- Last name: \t\t" << phonebook.contacts[n - 1].getLastName() << std::endl;
-		std::cout << "\t- Nickname: \t\t" << phonebook.contacts[n - 1].getNickname() << std::endl;
-		std::cout << "\t- Phone number: \t" << phonebook.contacts[n - 1].getPhoneNumber() << std::endl;
-		std::cout << "\t- Darkest secret: \t" << phonebook.contacts[n - 1].getDarkestSecret() << std::endl << std::endl;
+		std::cout << "\t- First name: \t\t" << phonebook.contacts[stoi(n) - 1].getName() << std::endl;
+		std::cout << "\t- Last name: \t\t" << phonebook.contacts[stoi(n) - 1].getLastName() << std::endl;
+		std::cout << "\t- Nickname: \t\t" << phonebook.contacts[stoi(n) - 1].getNickname() << std::endl;
+		std::cout << "\t- Phone number: \t" << phonebook.contacts[stoi(n) - 1].getPhoneNumber() << std::endl;
+		std::cout << "\t- Darkest secret: \t" << phonebook.contacts[stoi(n) - 1].getDarkestSecret() << std::endl << std::endl;
 	}
 	else
 		std::cout << "***** WRONG INDEX *****\n" << std::endl;
