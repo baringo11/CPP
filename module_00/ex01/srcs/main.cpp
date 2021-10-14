@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:44:55 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/10/14 11:33:49 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/10/14 11:59:08 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main()
 
 	while (1)
 	{
+		if (std::cin.eof())
+			exit_program();
 		std::cout << "***** CHOOSE COMMAND *****" << std::endl;
 		std::cout << "   (ADD, SEARCH, EXIT)    " << std::endl;
 		std::cin >> command;
@@ -45,22 +47,26 @@ void	add_contact(Phonebook *phonebook)
 
 	std::cout << "\n- Write the FIRST NAME: ";
 	std::getline(std::cin, first_name);
-	while (first_name.empty())
+	while (!std::cin.eof() && first_name.empty())
 	{
 		std::cout << "Error, FIRST NAME shouldn't be empty\n";
 		std::cout << "\n- Write the FIRST NAME: ";
 		std::getline(std::cin, first_name);
 	}
-	std::cout << "- Write the LAST NAME: ";
+	if (!std::cin.eof())
+		std::cout << "- Write the LAST NAME: ";
 	std::getline(std::cin, last_name);
 
-	std::cout << "- Write the NICKNAME: ";
+	if (!std::cin.eof())
+		std::cout << "- Write the NICKNAME: ";
 	std::getline(std::cin, nickname);
 
-	std::cout << "- Write the PHONE NUMBER: ";
+	if (!std::cin.eof())
+		std::cout << "- Write the PHONE NUMBER: ";
 	std::getline(std::cin, phone_number);
 
-	std::cout << "- Write the DARKEST SECRET: ";
+	if (!std::cin.eof())
+		std::cout << "- Write the DARKEST SECRET: ";
 	std::getline(std::cin, darkest_secret);
 
 	if (phonebook->get_index() == 8)
@@ -93,11 +99,13 @@ void	search_contact(Phonebook phonebook)
 	}
 	if (!search)
 	{
-		std::cout << "***** NO CONTACTS *****" << std::endl;
+		std::cout << "\n***** NO CONTACTS *****\n" << std::endl;
 		return ;
 	}
 	std::cout << "\nWrite the number of the contact you want to consult: ";
 	std::getline(std::cin, n);
+	if (std::cin.eof())
+		exit_program();
 	std::cout << std::endl;
 	if ((!n.compare("1") || !n.compare("2") || !n.compare("3") || !n.compare("4") || !n.compare("5") || !n.compare("6") || !n.compare("7") || !n.compare("8"))
 		&& stoi(n) <= search)
@@ -114,6 +122,6 @@ void	search_contact(Phonebook phonebook)
 
 void	exit_program()
 {
-	std::cout << "***** EXIT *****" << std::endl;
+	std::cout << "\n***** EXIT *****" << std::endl;
 	exit(0);
 }
