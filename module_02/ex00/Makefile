@@ -1,12 +1,14 @@
 NAME = a.out
-CC = clang++
-FLAGS = -c -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJS = $(SRCS:.cpp=.o)
 SRCS = main.cpp Fixed.cpp
 
-$(NAME): $(SRCS) $(OBJS)
-		#$(CC) $(FLAGS) $(SRCS)
-		$(CC) -o $(NAME) $(OBJS)
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) $< -c -o $@
+
+$(NAME): $(OBJS)
+		$(CXX) -o $@ $(OBJS)
 
 all: $(NAME)
 

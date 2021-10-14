@@ -6,13 +6,13 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 13:34:28 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/10/13 11:13:59 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/10/14 17:09:33 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-int	main(int argc, char **argv)
+int	main()
 {
 	Fixed a;
 	Fixed const b (10);
