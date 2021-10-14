@@ -1,12 +1,12 @@
 NAME = brain
-CC = clang++
+CC = c++
 FLAGS = -c -Wall -Wextra -Werror -std=c++98
 OBJS = $(SRCS:.cpp=.o)
 SRCS = main.cpp
 
 $(NAME): $(SRCS) $(OBJS)
 		#$(CC) $(FLAGS) $(SRCS)
-		$(CC) -o $(NAME) $(OBJS) #-g3 -fsanitize=address
+		$(CC) -o $(NAME) $(OBJS)
 
 all: $(NAME)
 
