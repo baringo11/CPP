@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 20:28:22 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/10/15 21:03:17 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/10/15 22:08:54 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ ClapTrap::~ClapTrap()
 
 ClapTrap &				ClapTrap::operator=( ClapTrap const & rhs )
 {
-	std::cout << "Asignation operator called" << std::endl;
 	name = rhs.name;
 	hitpoints = rhs.hitpoints;
 	energy_points = rhs.energy_points;
@@ -74,15 +73,15 @@ void ClapTrap::attack(std::string const & target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "ClapTrap " << this->name << " received " << amount << " points of damage :(" << std::endl;
+	std::cout << "ClapTrap " << this->name << " received " << amount << " points of damage :(";
 	this->hitpoints -= amount;
 	if (this->hitpoints < 0)
 	{
 		this->hitpoints = 0;
-		std::cout << "ClapTrap " << this->name << " died..." << std::endl;
+		std::cout << " and has died... :´(" << std::endl;
 	}
 	else
-		std::cout << "ClapTrap " << this->name << " still has " << this->hitpoints << " hitpoints!" << std::endl;
+		std::cout << ", but still has " << this->hitpoints << " hitpoints!" << std::endl;
 
 }
 
