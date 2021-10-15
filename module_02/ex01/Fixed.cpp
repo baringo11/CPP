@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 23:09:49 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/10/13 11:13:05 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/10/15 12:05:16 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ Fixed &		Fixed::operator = ( Fixed const & rhs )
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	//std::cout << "getRawBits member function called" << std::endl;
 	return (this->point_value);
 }
 

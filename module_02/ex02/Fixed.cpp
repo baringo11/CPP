@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 23:09:49 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/10/13 18:02:20 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/10/15 12:10:00 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,34 @@
 
 Fixed::Fixed() : point_value(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+//	std::cout << "Default constructor called" << std::endl;
 	return ;
 }
 
 Fixed::Fixed(int const n)
 {
-	std::cout << "Int constructor called" << std::endl;
+//	std::cout << "Int constructor called" << std::endl;
 	this->point_value = n << this->fractional_bits;
 	return ;
 }
 
 Fixed::Fixed(float const n)
 {
-	std::cout << "Float constructor called" << std::endl;
+//	std::cout << "Float constructor called" << std::endl;
 	this->point_value = (int)(roundf(n * (1 << this->fractional_bits)));
 	return ;
 }
 
 Fixed::Fixed(Fixed const &src)
 {
-	std::cout << "Copy constructor called" << std::endl;
+//	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 	return ;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+//	std::cout << "Destructor called" << std::endl;
 	return ;
 }
 
@@ -127,9 +127,7 @@ Fixed Fixed::operator ++ (int)
 {
 	Fixed ret(*this);
 
-//	std::cout << " POST operator ++ " << std::endl;
 	this->point_value++;
-
 	return (ret);
 }
 
