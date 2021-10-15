@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 21:39:02 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/10/15 21:53:38 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/10/15 22:45:41 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 class ScavTrap :  public ClapTrap
 {
-
 	public:
 		ScavTrap();
 		ScavTrap(std::string name_scavtrap);
