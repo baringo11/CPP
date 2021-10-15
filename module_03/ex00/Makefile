@@ -1,8 +1,8 @@
-NAME = a.out
+NAME = claptrap
 CXX = clang++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJS = $(SRCS:.cpp=.o)
-SRCS = main.cpp Fixed.cpp
+SRCS = main.cpp class/ClapTrap.cpp
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) $< -c -o $@
