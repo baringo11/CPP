@@ -1,23 +1,40 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/11/01 18:06:31 by jbaringo          #+#    #+#              #
+#    Updated: 2021/11/01 18:06:33 by jbaringo         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = fragtrap
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-OBJS = $(SRCS:.cpp=.o)
-SRCS = srcs/main.cpp srcs/class/ClapTrap.cpp srcs/class/ScavTrap.cpp srcs/class/FragTrap.cpp
+CXXFLAGS = -Werror -Wall -Wextra -std=c++98
 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) $< -c -o $@
+FILES = srcs/main.cpp srcs/class/ClapTrap.cpp srcs/class/ScavTrap.cpp srcs/class/FragTrap.cpp
 
-$(NAME): $(OBJS)
-		$(CXX) -o $@ $(OBJS)
+OBJ_DIR = obj
+OBJ = $(addprefix $(OBJ_DIR)/,$(FILES:.cpp=.o))
 
 all: $(NAME)
 
-clean:
-		rm -f $(OBJS)
+$(OBJ_DIR)/%.o: %.cpp
+	@mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-fclean: clean
-		rm -f $(NAME)
+$(NAME): $(OBJ)
+	$(CXX) -o $@ $(OBJ)
+
+clean :
+	rm -f *.o
+	rm -rf obj
+
+fclean : clean
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: clean fclean all re

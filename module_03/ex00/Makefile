@@ -1,23 +1,40 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/11/01 17:52:42 by jbaringo          #+#    #+#              #
+#    Updated: 2021/11/01 18:05:27 by jbaringo         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = claptrap
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-OBJS = $(SRCS:.cpp=.o)
-SRCS = main.cpp class/ClapTrap.cpp
+CXXFLAGS = -Werror -Wall -Wextra -std=c++98
 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) $< -c -o $@
+FILES = main.cpp class/ClapTrap.cpp
 
-$(NAME): $(OBJS)
-		$(CXX) -o $@ $(OBJS)
+OBJ_DIR = obj
+OBJ = $(addprefix $(OBJ_DIR)/,$(FILES:.cpp=.o))
 
 all: $(NAME)
 
-clean:
-		rm -f $(OBJS)
+$(OBJ_DIR)/%.o: %.cpp
+	@mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-fclean: clean
-		rm -f $(NAME)
+$(NAME): $(OBJ)
+	$(CXX) -o $@ $(OBJ)
+
+clean :
+	rm -f *.o
+	rm -rf obj
+
+fclean : clean
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: clean fclean all re
