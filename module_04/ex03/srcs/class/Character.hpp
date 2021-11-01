@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 13:11:26 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/10/19 14:17:56 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/11/01 19:14:28 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ class Character : public ICharacter
 		virtual void use(int idx, ICharacter& target);
 
 	private:
-		int			index;
 		std::string	name;
 		AMateria	*inventory[4];
 
