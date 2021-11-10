@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/19 13:11:30 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/11/01 19:45:52 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/11/10 14:23:03 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ Character &				Character::operator=( Character const & rhs )
 	this->name = rhs.getName();
 	for (int i = 0; i < 4; i++)
 	{
+		if (this->inventory[i] != NULL)
+				delete this->inventory[i];
 		if (rhs.inventory[i])
 			this->inventory[i] = rhs.inventory[i]->clone();
 		else
