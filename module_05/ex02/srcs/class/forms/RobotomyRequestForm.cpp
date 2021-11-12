@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 13:47:02 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/11/08 17:28:33 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/11/12 11:43:37 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@
 
 void	RobotomyRequestForm::executeConcreteForm() const
 {
+	srand(time(NULL));
+
 	std::cout << "BRRRRRRRRR @#~@###@#@#4 DRRRRRRRR" << std::endl;
 	if ((1 + (rand() % 3)) == 2)
 		std::cout << this->_target << " has been robotomized successfully" << std::endl;
