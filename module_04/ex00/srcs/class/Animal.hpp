@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 19:09:54 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/10/17 19:51:55 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/11/10 12:47:47 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Animal
 
 		Animal();
 		Animal( Animal const & src );
-		~Animal();
+		virtual ~Animal();
 
 		Animal &		operator=( Animal const & rhs );
 

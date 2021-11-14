@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 13:46:59 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/11/05 13:59:47 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/11/12 11:39:53 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 # include <string>
 # include <cstdlib>
+# include <time.h>
 # include "../AForm.hpp"
 
 class RobotomyRequestForm : public AForm

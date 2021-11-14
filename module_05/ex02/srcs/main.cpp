@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 17:08:35 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/11/08 17:35:38 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/11/12 11:46:54 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,6 @@ int	main()
 		form.beSigned(one);
 		std::cout << form << std::endl;
 		form.execute(one);
-		RobotomyRequestForm form2("formulario22");
-		form2.execute(one);
-		form2.beSigned(one);
-		form2.execute(one);
 	}
 	catch(const std::exception & e)
 	{

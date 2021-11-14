@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -21,23 +21,23 @@
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-	std::cout << "Default Animal destructor called" << std::endl;
+	std::cout << "Default AAnimal destructor called" << std::endl;
 }
 
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
-/*
-Animal &				Animal::operator=( Animal const & rhs )
+
+AAnimal &				AAnimal::operator=( AAnimal const & rhs )
 {
 	this->type = rhs.getType();
 	return *this;
 }
-*/
 
-std::ostream &			operator<<( std::ostream & o, Animal const & i )
+
+std::ostream &			operator<<( std::ostream & o, AAnimal const & i )
 {
 	o << i.getType();
 	return o;
@@ -52,7 +52,7 @@ std::ostream &			operator<<( std::ostream & o, Animal const & i )
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string	Animal::getType() const
+std::string	AAnimal::getType() const
 {
 	return (this->type);
 }

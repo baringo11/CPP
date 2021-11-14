@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 19:04:17 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/10/17 20:17:53 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/11/10 12:48:15 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ int	main()
 		j->makeSound();
 		meta->makeSound();
 
+		delete meta;
 		delete j;
+		delete i;
 		std::cout << "\n\n *************** \n\n";
 	}
 	{

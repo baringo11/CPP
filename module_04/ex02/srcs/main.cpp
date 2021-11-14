@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 19:04:17 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/10/19 11:24:58 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/11/10 14:08:03 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,19 @@
 
 int	main()
 {
-	Animal *a = new Dog();
-	Animal *b = new Cat();
+	AAnimal *a = new Dog();
+	AAnimal *b = new Cat();
 
 	// Compilation Error
-	//Animal *b = new Animal();
-
-	Dog dog;
+	//AAnimal *c = new AAnimal();
 
 	a->makeSound();
-	std::cout << a << std::endl;
+	std::cout << a->getType() << std::endl;
 
 	b->makeSound();
-	std::cout << b << std::endl;
+	std::cout << b->getType() << std::endl;
 
+	Dog dog;
 	dog.makeSound();
 	std::cout << dog << std::endl;
 

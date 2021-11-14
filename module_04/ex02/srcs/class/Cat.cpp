@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 19:10:05 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/10/19 11:23:10 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/11/10 13:59:20 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Cat::Cat()
 	this->brain = new Brain();
 }
 
-Cat::Cat( const Cat & src ) : Animal()
+Cat::Cat( const Cat & src )
 {
 	std::cout << "Copy Cat constructor called" << std::endl;
 	
