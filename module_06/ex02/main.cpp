@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 19:58:01 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/11/13 16:29:18 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/11/15 10:59:37 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,49 +49,10 @@ void	identify(Base *p)
 		std::cout << "C" << std::endl;
 }
 
-void	identify(Base & p);
-
 int	main()
 {
 	Base * base = static_cast<Base *>(generate());
     identify(base);
-	identify(*base);
 
 	delete base;
-}
-
-void identify(Base & p)
-{
-	try
-	{
-		A & a = dynamic_cast<A &>(p);
-		(void)a;
-		std::cout << "A" << std::endl;
-		return ;
-	}
-	catch(const std::exception& e)
-	{
-	}
-
-	try
-	{
-		B & b = dynamic_cast<B &>(p);
-		(void)b;
-		std::cout << "B" << std::endl;
-		return ;
-	}
-	catch(const std::exception& e)
-	{
-	}
-
-	try
-	{
-		C & c = dynamic_cast<C &>(p);
-		(void)c;
-		std::cout << "C" << std::endl;
-		return ;
-	}
-	catch(const std::exception& e)
-	{
-	}
 }
