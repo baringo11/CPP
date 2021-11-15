@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/14 19:44:29 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/11/14 20:18:41 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/11/15 13:26:28 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ class Array
 		Array<T>(const Array<T> &src)
 		{
 			std::cout << "Copy constructor called" << std::endl;
-			*this = src;
+			this->len = src.size();
+			this->array = new T[len];
+			for (int i = 0; i < this->len; i++)
+				this->array[i] = src[i];
 		};
 		~Array<T>()
 		{
