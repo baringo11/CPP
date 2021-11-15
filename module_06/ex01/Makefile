@@ -6,12 +6,12 @@
 #    By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/03 17:08:05 by jbaringo          #+#    #+#              #
-#    Updated: 2021/11/15 10:54:40 by jbaringo         ###   ########.fr        #
+#    Updated: 2021/11/15 13:42:55 by jbaringo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = convert
-CXX = clang++
+CXX = c++
 CXXFLAGS = -Werror -Wall -Wextra -std=c++98
 
 FILES = main.cpp
