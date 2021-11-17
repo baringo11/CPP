@@ -6,11 +6,13 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 12:16:43 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/11/16 12:56:17 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/11/17 12:37:58 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <cstdlib>
+#include <iterator>
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -27,7 +29,7 @@ Span::Span(unsigned int n) : len(n)
 
 Span::Span( const Span & src ) : len(src.getLen())
 {
-
+	this->numbers = src.numbers;
 }
 
 /*
@@ -38,23 +40,23 @@ Span::~Span()
 {
 }
 
-
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
 Span &				Span::operator=( Span const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		this->len = rhs.getLen();
+		this->numbers = rhs.numbers;
+	}
 	return *this;
 }
 
 std::ostream &			operator<<( std::ostream & o, Span const & i )
 {
-	//o << "Value = " << i.getValue();
+	o << "Value = " << i.getLen();
 	return o;
 }
 
@@ -63,12 +65,49 @@ std::ostream &			operator<<( std::ostream & o, Span const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void	Span::addNumber(int n)
+{
+	if (numbers.size() == len)
+		throw std::out_of_range("Cannot add any more numbers");
+	this->numbers.push_back(n);
+}
+
+int				Span::shortestSpan(void) const
+{
+	std::vector<int>	tmp = this->numbers;
+	std::vector<int>::iterator	it;
+	int	span;
+
+	if (this->numbers.size() <= 1)
+		throw std::logic_error("Not enought numbers to find span");
+
+	std::sort(tmp.begin(), tmp.end());
+
+	it = tmp.begin() + 1;
+	for (span = *it - *tmp.begin() ; it != tmp.end() - 1 ; it++)
+	{
+		if (*(it+1) - *it < span)
+			span = *(it+1) - *it;
+	}
+	return span;
+}
+
+int				Span::longestSpan(void) const
+{
+	std::vector<int>	tmp = this->numbers;
+
+	if (this->numbers.size() <= 1)
+		throw std::logic_error("Not enought numbers to find span");
+	
+	std::sort(tmp.begin(), tmp.end());
+	return (*(tmp.end() - 1) - *tmp.begin());
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-const unsigned int Span::getLen() const
+unsigned int Span::getLen() const
 {
 	return (this->len);
 }
