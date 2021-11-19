@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 20:00:36 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/11/19 10:41:25 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/11/19 13:16:21 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,32 @@ int	main( void )
 		}
 		std::stack<int> s(mstack);
 	}
-		std::cout << "\n**************\n"<< std::endl;
+	std::cout << "\n**************\n"<< std::endl;
+	{
+		std::list<int> mstack;
+		std::list<int>::iterator it;
+		std::list<int>::iterator ite;
+
+		mstack.push_back(5);
+		mstack.push_back(17);
+		std::cout << "Top: " << mstack.back() << std::endl;
+		mstack.pop_back();
+		std::cout << "Size: " << mstack.size() << std::endl;
+		mstack.push_back(3);
+		mstack.push_back(5);
+		mstack.push_back(737);
+		//[...]
+		mstack.push_back(0);
+		it = mstack.begin();
+		ite = mstack.end();
+		while (it != ite)
+		{
+			std::cout << *it << std::endl;
+			++it;
+		}
+		std::list<int> s(mstack);
+	}
+	std::cout << "\n**************\n"<< std::endl;
 	{
 		MutantStack<std::string> mstack;
 		MutantStack<std::string>::iterator it;
