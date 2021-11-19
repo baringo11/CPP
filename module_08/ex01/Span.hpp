@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 12:16:40 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/11/17 12:19:03 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/11/19 12:42:35 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Span
 		Span &		operator=( Span const & rhs );
 
 		void	addNumber(int n);
+		void	addRandomNumbers(int n);
 
 		int				shortestSpan(void) const;
 		int				longestSpan(void) const;

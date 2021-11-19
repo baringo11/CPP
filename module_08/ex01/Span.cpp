@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 12:16:43 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/11/17 12:37:58 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/11/19 12:43:44 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,13 @@ void	Span::addNumber(int n)
 	if (numbers.size() == len)
 		throw std::out_of_range("Cannot add any more numbers");
 	this->numbers.push_back(n);
+}
+
+void	Span::addRandomNumbers(int n_elements)
+{
+	srand (time(NULL));
+	for (int i = 0; i < n_elements; i++)
+		this->addNumber(rand());
 }
 
 int				Span::shortestSpan(void) const
