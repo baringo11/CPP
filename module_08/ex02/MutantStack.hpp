@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 13:41:23 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/11/18 14:16:48 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/11/19 10:46:35 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,40 @@
 # define MUTANTSTACK_HPP
 
 # include <iostream>
-# include <string>
 # include <stack>
+# include <iterator>
 
 template< typename T >
-class MutantStack : std::stack<T>
+class MutantStack : public std::stack<T>
 {
 	public:
+		MutantStack() {}
+		MutantStack( MutantStack const & src ) : std::stack<T>(src) {}
+		virtual ~MutantStack() {}
 
-		MutantStack<T>();
-		MutantStack<T>(MutantStack const & src);
-		~MutantStack<T>();
+		MutantStack &	operator = ( MutantStack const & rhs )
+		{
+			if ( this != &rhs )
+			{
+				MutantStack temp(rhs);
+				temp.swap(*this);
+			}
+			return *this;
+		}
 
-		MutantStack &		operator=( MutantStack const & rhs );
+		typedef typename std::stack<T>::container_type::iterator iterator;
+
+		iterator		begin( void )
+		{
+			return this->std::stack<T>::c.begin();
+		}
+
+		iterator		end( void )
+		{
+			return this->std::stack<T>::c.end();
+		}
 
 	private:
-
 };
 
 template< typename T >

@@ -6,7 +6,7 @@
 /*   By: jbaringo <jbaringo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 20:00:36 by jbaringo          #+#    #+#             */
-/*   Updated: 2021/11/18 14:12:13 by jbaringo         ###   ########.fr       */
+/*   Updated: 2021/11/19 10:41:25 by jbaringo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	main( void )
 		MutantStack<int>::iterator ite = mstack.end();
 		++it;
 		--it;
+		std::cout << "------------"<< std::endl;
 		while (it != ite)
 		{
 			std::cout << *it << std::endl;
@@ -43,11 +44,27 @@ int	main( void )
 		}
 		std::stack<int> s(mstack);
 	}
-	std::stack<int> cont;
+		std::cout << "\n**************\n"<< std::endl;
+	{
+		MutantStack<std::string> mstack;
+		MutantStack<std::string>::iterator it;
+		MutantStack<std::string>::iterator ite;
 
-	std::vector<int> myvector (2,200);
-	std::stack< int, std::vector<int> > cont2(myvector);
-
-	std::cout << "stack: " << &cont << std::endl;
-	std::cout << "stack: " << &cont2 << " contains: " << cont2.top() << std::endl;
+		mstack.push("A");
+		mstack.push("B");
+		std::cout << "Top: " << mstack.top() << std::endl;
+		mstack.pop();
+		std::cout << "Size: " << mstack.size() << std::endl;
+		mstack.push("C");
+		mstack.push("D");
+		mstack.push("E");
+		it = mstack.begin();
+		ite = mstack.end();
+		std::cout << "------------"<< std::endl;
+		while (it != ite)
+		{
+			std::cout << *it << std::endl;
+			++it;
+		}
+	}
 }
